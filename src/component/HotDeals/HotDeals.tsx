@@ -1,17 +1,11 @@
 import "./HotDeals.scss";
 import product from "../../products.json";
 import { CiHeart } from "react-icons/ci";
-import { useState } from "react";
-import { Products } from "../../type/type";
+
 
 const HotDeals = () => {
-  const [liked, setLiked] = useState<Products[]>()
 
-  // const toggle = (id:Products) =>{
-  //   if(liked.includes(id)){
-  //     set
-  //   }
-  // }
+
   return (
     <>
       <div className="hot-deal">
