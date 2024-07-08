@@ -2,7 +2,14 @@ import { CgMail } from "react-icons/cg";
 import footerLogo from "../../assets/images/footerlogo.png";
 import arrowup from "../../assets/images/arrowup.png";
 import "./Footer.scss";
+
 const Footer = () => {
+    const handleScroll = () => {
+        window.scrollTo({
+            top:0,
+            behavior:'smooth'
+        })
+    }
   return (
     <>
       <div className="footer-wrapper">
@@ -72,8 +79,8 @@ const Footer = () => {
         </div>
         <div className="third-footer">
           <img src={footerLogo} alt="footer-logo" className="footer-logo" />
-          <p>&copy; 2024 ituneintltech</p>
-          <img src={arrowup} alt="arrow up" className="arrow-up" />
+          <p className="footer-note">&copy; 2024 ituneintltech</p>
+          <img src={arrowup} alt="arrow up" className="arrow-up" onClick={handleScroll} />
         </div>
       </div>
     </>

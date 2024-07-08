@@ -13,14 +13,14 @@
       h2 {
         font-weight: 700;
         font-size: 32px;
-        line-height: 39px;
+        line-height: 49px;
       }
 
       li {
         list-style: none;
         font-size: 32px;
         font-weight: 500;
-        line-height: 39px;
+        line-height: 49px;
       }
       @media (max-width: 980px) {
         flex-direction: column;
@@ -113,6 +113,15 @@
     align-items: center;
     justify-content: space-between;
     padding: 2rem;
+
+    .footer-note {
+      font-size: 2rem;
+      font-weight: 400;
+      line-height: 29px;
+    }
+    .arrow-up {
+      cursor: pointer;
+    }
 
     .footer-logo,
     .arrow-up {

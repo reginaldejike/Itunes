@@ -1,27 +1,91 @@
 .cart-page {
+  background-color: #d0d1f0;
+
   &-content {
+    padding: 2rem;
+    .cart-info {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      .cart-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+    }
+    .table-container {
+      overflow-x: auto;
+    }
     .data-table {
       width: 100%;
       margin-top: 30px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
       border-collapse: collapse;
       border-spacing: 0;
-      tr {
-        padding: 30px;
-      }
-      th {
-        text-align: start;
-        padding: 10px 20px;
-        color: rgba(84, 95, 125, 1);
+      background-color: white;
+      border-radius: 16px;
+      display: table;
+      overflow-x: auto;
+
+      tbody {
+        display: table-row-group;
       }
 
+      th,
       td {
         text-align: start;
-        padding: 30px 20px;
+        padding: 20px 20px;
         color: rgba(84, 95, 125, 1);
+        font-size: 20px;
+        font-weight: 600;
       }
+
       .data-row {
         position: relative;
+
+        &-card {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          padding: 2rem;
+
+          img {
+            padding: 2rem;
+            width: 100%;
+          }
+          p {
+            font-size: 20px;
+            font-weight: 600;
+          }
+
+          .img-card {
+            background: #d0d1f0;
+            width: 300px;
+            height: 310px;
+            display: grid;
+            place-items: center;
+            // text-align: center;
+            border-radius: 6px;
+          }
+        }
+
+        .quantity-btn {
+          display: flex;
+          gap: 10px;
+          background: #d0d1f0;
+          justify-content: center;
+          align-items: center;
+          border-radius: 3px;
+          color: #2e3192;
+          width: 77px;
+          .decrease,
+          .increase {
+            background: none;
+            border: none;
+            font-size: 30px;
+            color: #2e3192;
+          }
+        }
       }
 
       .data-row::after {
@@ -43,6 +107,27 @@
         gap: 10px;
         align-items: center;
       }
+    }
+    .aggregate-section {
+      padding: 2rem;
+      margin-top: 30px;
+      background-color: white;
+      width: 100%;
+
+      .aggregate-item {
+        width: 20%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .checkout-btn {
+      margin-top: 30px;
+      width: 50%;
+      padding: 1rem 0;
+      background-color: #2e3192;
+      color: #fff;
+      border: none;
     }
   }
 }

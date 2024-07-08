@@ -1,17 +1,17 @@
 import "./HotDeals.scss";
-import product from "../../products.json";
 import { CiHeart } from "react-icons/ci";
-
+import { useOutletContext } from "react-router-dom";
+import { Products } from "../../type/type";
 
 const HotDeals = () => {
-
+  const products = useOutletContext<Products>();
 
   return (
     <>
       <div className="hot-deal">
         <h1>Hot Deals</h1>
         <div className="card-wrapper">
-          {product.products.map((p) => (
+          {products.map((p) => (
             <div key={p.id} className="card">
               <CiHeart size="2rem" className="heart" />
               <img src={p.image} alt={p.brandName} />
