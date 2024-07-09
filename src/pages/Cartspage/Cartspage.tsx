@@ -1,17 +1,32 @@
 import { BsCart4 } from "react-icons/bs";
-import product from "../../products.json";
 import "./Cartspage.scss";
-import { useState } from "react";
+import { Product } from "../../type/type";
+import { useOutletContext } from "react-router-dom";
+
+interface Props {
+  cart: Product[];
+  setCart: React.Dispatch<React.SetStateAction<Product[]>>;
+}
 
 const Cartspage = () => {
-  const [counter, setcounter] = useState<number>(0);
-  const handleDecrease = (e: any) => {
-    e.preventDefault();
-    setcounter(counter - 1);
+  const { cart, setCart } = useOutletContext<Props>();
+
+  const handleIncrease = (id: number) => {
+    setCart((prevCart) =>
+      prevCart.map((item) =>
+        item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+      )
+    );
   };
-  const handleIncease = (e: any) => {
-    e.preventDefault();
-    setcounter(counter + 1);
+
+  const handleDecrease = (id: number) => {
+    setCart((prevCart) =>
+      prevCart.map((item) =>
+        item.id === id
+          ? { ...item, quantity: Math.max(item.quantity - 1, 1) }
+          : item
+      )
+    );
   };
   return (
     <>
@@ -21,7 +36,7 @@ const Cartspage = () => {
             <span className="cart-title">
               <BsCart4 size={"2rem"} /> <h3>Cart</h3>
             </span>
-            <p>3 items in your cart</p>
+            <p>{cart.length} items in your cart</p>
           </div>
           <div className="table-container">
             <table className="data-table">
@@ -52,7 +67,7 @@ const Cartspage = () => {
                 </tr>
               </thead>
               <tbody>
-                {product.products.map((product) => (
+                {cart.map((product) => (
                   <tr key={product.id} className="data-row">
                     <div className="data-row-card">
                       <div className="img-card">
@@ -63,16 +78,22 @@ const Cartspage = () => {
                     <td>{product.price}</td>
                     <td>
                       <div className="quantity-btn">
-                        <button onClick={handleDecrease} className="decrease">
+                        <button
+                          onClick={() => handleDecrease(product.id)}
+                          className="decrease"
+                        >
                           -
                         </button>
-                        <p>{counter}</p>
-                        <button onClick={handleIncease} className="increase">
+                        <p>{product.quantity}</p>
+                        <button
+                          onClick={() => handleIncrease(product.id)}
+                          className="increase"
+                        >
                           +
                         </button>
                       </div>
                     </td>
-                    <td>{product.price}</td>
+                    <td>{parseInt(product.price) * product.quantity}</td>
                   </tr>
                 ))}
               </tbody>

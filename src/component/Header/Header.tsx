@@ -4,16 +4,20 @@ import { BsCart4 } from "react-icons/bs";
 import { CiHeart } from "react-icons/ci";
 import { FaRegUser } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
-
 import { IoIosClose } from "react-icons/io";
 import "./Header.scss";
 import { useState } from "react";
-const Header = () => {
+import { Product } from "../../type/type";
+
+interface Props {
+  cart: Product[];
+}
+const Header = ({ cart }: Props) => {
   const [ismobile, setIsmobile] = useState<boolean>(false);
 
   return (
     <>
-      <nav className="nav-wrapper" >
+      <nav className="nav-wrapper">
         <div className="nav-content">
           <NavLink to={"/"} className="logo-wrapper">
             <img src={logo} alt="logo" className="logo" />
@@ -23,7 +27,12 @@ const Header = () => {
               <p>All Products</p>
             </NavLink>
             <NavLink to={"/cart"} className="nav-item">
-              <BsCart4 size={"2rem"} />
+              <div className="cart">
+                <BsCart4 size={"2rem"} />
+                {cart.length > 0 && (
+                  <span className="cart-count">{cart.length}</span>
+                )}
+              </div>
               <p>Cart</p>
             </NavLink>
             <NavLink to={"/"} className="nav-item">

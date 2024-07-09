@@ -64,26 +64,26 @@
             height: 310px;
             display: grid;
             place-items: center;
-            // text-align: center;
             border-radius: 6px;
           }
         }
 
         .quantity-btn {
           display: flex;
-          gap: 10px;
+          gap: 15px;
           background: #d0d1f0;
           justify-content: center;
           align-items: center;
           border-radius: 3px;
           color: #2e3192;
-          width: 77px;
+          width: 100px;
           .decrease,
           .increase {
             background: none;
             border: none;
             font-size: 30px;
             color: #2e3192;
+            cursor: pointer;
           }
         }
       }
