@@ -13,7 +13,9 @@ const MainLayout = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const res = await fetch("/api/products");
+        const res = await fetch(
+          "https://my-json-server.typicode.com/reginaldejike/products/products"
+        );
         const data = await res.json();
         setProduct(data);
       } catch (error) {
