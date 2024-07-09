@@ -13,7 +13,7 @@ const MainLayout = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const res = await fetch("http://localhost:8000/products");
+        const res = await fetch("/api/products");
         const data = await res.json();
         setProduct(data);
       } catch (error) {
