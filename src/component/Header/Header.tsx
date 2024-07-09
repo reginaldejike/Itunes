@@ -1,8 +1,7 @@
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/images/itunelogo4.svg";
 import { BsCart4 } from "react-icons/bs";
-import { CiHeart } from "react-icons/ci";
-import { FaRegUser } from "react-icons/fa";
+import { NavHashLink } from "react-router-hash-link";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoIosClose } from "react-icons/io";
 import "./Header.scss";
@@ -23,9 +22,9 @@ const Header = ({ cart }: Props) => {
             <img src={logo} alt="logo" className="logo" />
           </NavLink>
           <div className={!ismobile ? "navigation-links" : "mobile-view"}>
-            <NavLink to={"/"} className="nav-item">
+            <NavHashLink to={"#hotDeal"} className="nav-item">
               <p>All Products</p>
-            </NavLink>
+            </NavHashLink>
             <NavLink to={"/cart"} className="nav-item">
               <div className="cart">
                 <BsCart4 size={"2rem"} />
@@ -35,14 +34,14 @@ const Header = ({ cart }: Props) => {
               </div>
               <p>Cart</p>
             </NavLink>
-            <NavLink to={"/"} className="nav-item">
+            {/* <NavLink to={"/"} className="nav-item">
               <CiHeart size={"2rem"} />
               <p>Wishlist</p>
             </NavLink>
             <NavLink to={"/"} className="nav-item">
               <FaRegUser size={"2rem"} />
               <p>Account</p>
-            </NavLink>
+            </NavLink> */}
           </div>
           <button
             className="mobile-view-icon"

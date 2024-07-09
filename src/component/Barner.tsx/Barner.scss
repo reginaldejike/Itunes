@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: space-between;
   background-color: rgb(48, 45, 45);
-  background-image: url("../../../public/backgroundImg.svg");
+  background-image: url("/backgroundImg.svg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -38,10 +38,14 @@
       @media (max-width: 1026px) {
         font-size: 2rem;
       }
+      @media (max-width: 480px) {
+        font-size: 20px;
+      }
     }
 
     .search-wrapper {
       display: flex;
+      padding: unset;
       gap: 10px;
       .search-input {
         position: relative;

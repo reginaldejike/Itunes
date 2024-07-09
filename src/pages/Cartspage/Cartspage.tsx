@@ -1,16 +1,28 @@
 import { BsCart4 } from "react-icons/bs";
 import "./Cartspage.scss";
 import { Product } from "../../type/type";
-import { useOutletContext } from "react-router-dom";
+import { useNavigate, useOutletContext } from "react-router-dom";
 
 interface Props {
   cart: Product[];
   setCart: React.Dispatch<React.SetStateAction<Product[]>>;
+  convertPriceToInteger: (price: string) => number;
+  calculateTotalPrice: () => number;
+  discount: () => number;
+  total: () => number;
 }
 
 const Cartspage = () => {
-  const { cart, setCart } = useOutletContext<Props>();
+  const {
+    cart,
+    setCart,
+    convertPriceToInteger,
+    calculateTotalPrice,
+    discount,
+    total,
+  } = useOutletContext<Props>();
 
+  const navigate = useNavigate();
   const handleIncrease = (id: number) => {
     setCart((prevCart) =>
       prevCart.map((item) =>
@@ -28,6 +40,11 @@ const Cartspage = () => {
       )
     );
   };
+
+  const checkOut = () => {
+    navigate("/paymentInfo");
+  };
+
   return (
     <>
       <div className="cart-page">
@@ -93,7 +110,11 @@ const Cartspage = () => {
                         </button>
                       </div>
                     </td>
-                    <td>{parseInt(product.price) * product.quantity}</td>
+                    <td>
+                      {`NGN${
+                        convertPriceToInteger(product.price) * product.quantity
+                      }`}
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -101,16 +122,18 @@ const Cartspage = () => {
           </div>
           <div className="aggregate-section">
             <div className="aggregate-item">
-              <p>Subtotal:</p> <span> N1,830,000.00</span>
+              <p>Subtotal:</p> <span> NGN{calculateTotalPrice()}</span>
             </div>
             <div className="aggregate-item">
-              <p>discount:</p> <span> N100,000.00</span>
+              <p>discount:</p> <span> NGN{discount()}</span>
             </div>
             <div className="aggregate-item">
-              <p>Total:</p> <span>N1,730,00</span>
+              <p>Total:</p> <span>NGN{total()}</span>
             </div>
           </div>
-          <button className="checkout-btn">Check out</button>
+          <button className="checkout-btn" onClick={checkOut}>
+            Check out
+          </button>
         </div>
       </div>
     </>

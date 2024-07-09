@@ -1,0 +1,60 @@
+dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  z-index: 1001; /* Ensure dialog is above other content */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  //   min-height: 500px;
+}
+
+.otp-form {
+  display: grid;
+  gap: 30px;
+  padding: 4rem;
+  place-items: center;
+
+  p {
+    font-weight: 700;
+    font-size: 2rem;
+    @media (max-width: 468px) {
+      font-size: 13px;
+    }
+  }
+
+  .input-span {
+    display: flex;
+    gap: 10px;
+    .span-input {
+      width: 50px;
+      height: 50px;
+      font-size: 20px;
+      text-align: center;
+    }
+  }
+  .verify {
+    background: #2e3192;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 28px;
+    color: #f8f7f7;
+    padding: 20px 20px;
+    border: solid #f8f7f7;
+    border-radius: 8px;
+    width: 50%;
+    cursor: pointer;
+  }
+}
+
+dialog::backdrop {
+  background-image: linear-gradient(
+    45deg,
+    magenta,
+    rebeccapurple,
+    dodgerblue,
+    green
+  );
+  opacity: 0.75;
+}

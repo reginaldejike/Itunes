@@ -48,6 +48,31 @@ const MainLayout = () => {
     });
   };
 
+  const convertPriceToInteger = (price: string): number => {
+    // Remove "NGN"
+    const withoutCurrency = price.replace("NGN", "");
+    // Remove commas
+    const withoutCommas = withoutCurrency.replace(/,/g, "");
+    // Convert to integer
+    const priceInteger = parseInt(withoutCommas, 10);
+
+    return priceInteger;
+  };
+
+  const calculateTotalPrice = (): number => {
+    return cart.reduce((total, product) => {
+      return total + convertPriceToInteger(product.price) * product.quantity;
+    }, 0);
+  };
+
+  const discount = (): number => {
+    return calculateTotalPrice() * 0.02;
+  };
+
+  const total = (): number => {
+    return calculateTotalPrice() - discount();
+  };
+
   return (
     <>
       <Header cart={cart} />
@@ -61,6 +86,10 @@ const MainLayout = () => {
           addToCart,
           cart,
           setCart,
+          convertPriceToInteger,
+          calculateTotalPrice,
+          discount,
+          total,
         }}
       />
       <Footer />
