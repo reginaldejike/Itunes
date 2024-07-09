@@ -1,0 +1,60 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "brandName": "Lenovo Think Vision",
+      "brandInfo": "21.5 inch (546mm) TFT LCD 1920 x 1080 16.7 million colours",
+      "price": "NGN120,000.00",
+      "image": "products/lenovo.png"
+    },
+    {
+      "id": 2,
+      "brandName": "Orimo Smart Watch",
+      "brandInfo": "Waterproof Blood Oxygen 24 Fitness Pro",
+      "price": "NGN60,000.00",
+      "image": "products/watch.png"
+    },
+    {
+      "id": 3,
+      "brandName": "HP Elitebook 1040",
+      "brandInfo": "Core i7 256SSD 16Gb Ram 8th Gen",
+      "price": "NGN290,000.00",
+      "image": "products/eliteBook.png"
+    },
+    {
+      "id": 4,
+      "brandName": "USB Type X to Port",
+      "brandInfo": "11 in 1 VGA + LAN Port + 4 x USB 3.0 + SD / TF Card+ HDMI",
+      "price": "NGN60,000.00",
+      "image": "products/adopter.png"
+    },
+    {
+      "id": 5,
+      "brandName": "Dell Latitude 7390",
+      "brandInfo": "Core i5 16Gb Ram 2 in 1Touch screen 8th Gen",
+      "price": "NGN290,000.00",
+      "image": "products/dell.png"
+    },
+    {
+      "id": 6,
+      "brandName": "HP Elitebook 840 G5",
+      "brandInfo": "core I5 256SSD 16Gb Ram 8th Ge",
+      "price": "NGN270,000.00",
+      "image": "products/hp.png"
+    },
+    {
+      "id": 7,
+      "brandName": "Sandisk Ultra",
+      "brandInfo": "Usb 3.1 Flash Drive 16gb",
+      "price": "NGN290,000.00",
+      "image": "products/sanDisk.png"
+    },
+    {
+      "id": 8,
+      "brandName": "Apple IPhone 14 Pro Max",
+      "brandInfo": "6.7 Iinch 256GB Nano Sim Gold",
+      "price": "NGN1,500,000.00",
+      "image": "products/phone.png"
+    }
+  ]
+}
