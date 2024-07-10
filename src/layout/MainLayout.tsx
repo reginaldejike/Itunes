@@ -9,7 +9,7 @@ const MainLayout = () => {
   const [likedProduct, setLikedProduct] = useState<number[]>([]);
   const [search, setSearch] = useState<string>("");
   const [cart, setCart] = useState<Product[]>([]);
-  const [loading, setloading] = useState<boolean>(true)
+  const [loading, setloading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -21,8 +21,8 @@ const MainLayout = () => {
         setProduct(data);
       } catch (error) {
         console.log(error);
-      } finally{
-        setloading(false)
+      } finally {
+        setloading(false);
       }
     };
 
@@ -51,6 +51,14 @@ const MainLayout = () => {
         return [...prevCart, { ...product, quantity: 1 }];
       }
     });
+    console.log({ cart });
+  };
+
+  const removeFromCart = (productId: number) => {
+    setCart((prevCart) => {
+      return prevCart.filter((item) => item.id !== productId);
+    });
+    console.log({ cart });
   };
 
   const convertPriceToInteger = (price: string): number => {
@@ -95,7 +103,8 @@ const MainLayout = () => {
           calculateTotalPrice,
           discount,
           total,
-          loading
+          loading,
+          removeFromCart,
         }}
       />
       <Footer />

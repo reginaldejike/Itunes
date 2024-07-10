@@ -10,6 +10,7 @@ interface Props {
   calculateTotalPrice: () => number;
   discount: () => number;
   total: () => number;
+  removeFromCart: (productId: number) => void;
 }
 
 const Cartspage = () => {
@@ -20,6 +21,7 @@ const Cartspage = () => {
     calculateTotalPrice,
     discount,
     total,
+    removeFromCart,
   } = useOutletContext<Props>();
 
   const navigate = useNavigate();
@@ -114,6 +116,17 @@ const Cartspage = () => {
                       {`NGN${
                         convertPriceToInteger(product.price) * product.quantity
                       }`}
+                    </td>
+                    <td>
+                      <button
+                        onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+                          e.preventDefault();
+                          removeFromCart(product.id);
+                        }}
+                        className="Cart-remove-btn"
+                      >
+                        Remove
+                      </button>
                     </td>
                   </tr>
                 ))}
