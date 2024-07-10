@@ -142,36 +142,42 @@ const PaymentInfo = () => {
                 </div>
                 <div className="check-box-section">
                   <h3>Type of Card</h3>
-                  <Controller
-                    name="cardStatus"
-                    control={control}
-                    defaultValue={selectedCard}
-                    rules={{
-                      required: "At least one card type must be selected",
-                    }}
-                    render={({ field: { onChange, value } }) => (
-                      <>
-                        <div className="check-box">
-                          <label htmlFor="verve">Verve</label>
-                          <input
-                            type="checkbox"
-                            checked={value === "Verve"}
-                            onChange={() => handleCardChange("Verve", onChange)}
-                            className="check"
-                          />
-                        </div>
-                        <div className="check-box">
-                          <label htmlFor="visa">Visa</label>
-                          <input
-                            type="checkbox"
-                            checked={value === "Visa"}
-                            onChange={() => handleCardChange("Visa", onChange)}
-                            className="check"
-                          />
-                        </div>
-                      </>
-                    )}
-                  />
+                  <div className="check-control">
+                    <Controller
+                      name="cardStatus"
+                      control={control}
+                      defaultValue={selectedCard}
+                      rules={{
+                        required: "At least one card type must be selected",
+                      }}
+                      render={({ field: { onChange, value } }) => (
+                        <>
+                          <div className="check-box">
+                            <label htmlFor="verve">Verve</label>
+                            <input
+                              type="checkbox"
+                              checked={value === "Verve"}
+                              onChange={() =>
+                                handleCardChange("Verve", onChange)
+                              }
+                              className="check"
+                            />
+                          </div>
+                          <div className="check-box">
+                            <label htmlFor="visa">Visa</label>
+                            <input
+                              type="checkbox"
+                              checked={value === "Visa"}
+                              onChange={() =>
+                                handleCardChange("Visa", onChange)
+                              }
+                              className="check"
+                            />
+                          </div>
+                        </>
+                      )}
+                    />
+                  </div>
                 </div>
                 {errors.cardStatus && (
                   <p className="error">
@@ -182,40 +188,42 @@ const PaymentInfo = () => {
               <div className="form-body">
                 <div className="check-box-section">
                   <h3>Delivery Method</h3>
-                  <Controller
-                    name="delivery"
-                    control={control}
-                    defaultValue={selectDelivery}
-                    rules={{
-                      required: "At least one card type must be selected",
-                    }}
-                    render={({ field: { onChange, value } }) => (
-                      <>
-                        <div className="check-box">
-                          <label htmlFor="pickup">Pick Up</label>
-                          <input
-                            type="checkbox"
-                            checked={value === "pickup"}
-                            onChange={() =>
-                              handleDeliveryChange("pickup", onChange)
-                            }
-                            className="check"
-                          />
-                        </div>
-                        <div className="check-box">
-                          <label htmlFor="delivery">Delivery</label>
-                          <input
-                            type="checkbox"
-                            checked={value === "delivery"}
-                            onChange={() =>
-                              handleDeliveryChange("delivery", onChange)
-                            }
-                            className="check"
-                          />
-                        </div>
-                      </>
-                    )}
-                  />
+                  <div className="check-control">
+                    <Controller
+                      name="delivery"
+                      control={control}
+                      defaultValue={selectDelivery}
+                      rules={{
+                        required: "At least one card type must be selected",
+                      }}
+                      render={({ field: { onChange, value } }) => (
+                        <>
+                          <div className="check-box">
+                            <label htmlFor="pickup">Pick Up</label>
+                            <input
+                              type="checkbox"
+                              checked={value === "pickup"}
+                              onChange={() =>
+                                handleDeliveryChange("pickup", onChange)
+                              }
+                              className="check"
+                            />
+                          </div>
+                          <div className="check-box">
+                            <label htmlFor="delivery">Delivery</label>
+                            <input
+                              type="checkbox"
+                              checked={value === "delivery"}
+                              onChange={() =>
+                                handleDeliveryChange("delivery", onChange)
+                              }
+                              className="check"
+                            />
+                          </div>
+                        </>
+                      )}
+                    />
+                  </div>
                 </div>
                 {errors.delivery && (
                   <p className="error">
