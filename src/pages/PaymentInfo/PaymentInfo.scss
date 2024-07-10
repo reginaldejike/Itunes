@@ -10,6 +10,38 @@
         font-size: 20px;
       }
     }
+    .loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+      height: 105px;
+      background-color: #ec1d25;
+      border-radius: 47px;
+      width: 600px;
+      color: #f8f7f7;
+      display: none;
+
+      @media (max-width: 601px) {
+        width: 100%;
+      }
+    }
+
+    .success {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+      height: 105px;
+      background-color: #06641b;
+      border-radius: 47px;
+      width: 600px;
+      margin-bottom: 30px;
+      color: #f8f7f7;
+      @media (max-width: 601px) {
+        width: 100%;
+      }
+    }
     &-body {
       display: flex;
       gap: 20px;
@@ -32,7 +64,7 @@
         }
 
         .form-body {
-          background-color: #fff;
+          background-color: #f8f7f7;
           border-radius: 10px;
           padding: 2rem;
           width: 910px;
@@ -54,7 +86,7 @@
             }
             .card-num {
               padding: 30px 10px;
-              // font-size: 2rem;
+              font-size: 2rem;
               border: solid #121212;
               outline: none;
               border-radius: 10px;
@@ -87,6 +119,10 @@
             align-items: center;
             justify-content: space-between;
             padding: 2rem 0;
+
+            @media (max-width: 480px) {
+              flex-direction: column;
+            }
 
             .check-control {
               display: flex;

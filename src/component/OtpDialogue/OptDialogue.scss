@@ -7,7 +7,15 @@ dialog {
   padding: 20px;
   z-index: 1001; /* Ensure dialog is above other content */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border: none;
   //   min-height: 500px;
+}
+
+.close {
+  display: flex;
+  float: right;
+  color: #2e3192;
+  cursor: pointer;
 }
 
 .otp-form {
@@ -15,6 +23,7 @@ dialog {
   gap: 30px;
   padding: 4rem;
   place-items: center;
+  position: relative;
 
   p {
     font-weight: 700;

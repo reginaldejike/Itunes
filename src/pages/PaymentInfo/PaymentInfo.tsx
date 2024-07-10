@@ -2,6 +2,7 @@ import AtmCard from "../../assets/images/atm.svg";
 import {
   Controller,
   FieldError,
+  set,
   SubmitHandler,
   useForm,
 } from "react-hook-form";
@@ -32,6 +33,7 @@ const PaymentInfo = () => {
   const [selectedCard, setSelectedCard] = useState<string>("Verve");
   const [selectDelivery, setSelectDelivery] = useState<string>("pickup");
   const [dialogVisible, setDialogVisible] = useState(false);
+  const [success, setSuccess] = useState<boolean>(false);
   const {
     register,
     handleSubmit,
@@ -79,6 +81,10 @@ const PaymentInfo = () => {
       <div className="payment-info">
         <div className="payment-info-content">
           <h3>Payment Info</h3>
+          {}
+          {dialogVisible ? <div className="loading">Please wait</div> : ""}
+          {success ? <div className="success">Payment successful</div> : ""}
+
           <div className="payment-info-content-body">
             <form onSubmit={handleSubmit(onSubmit)} className="form-container">
               <div className="form-body">
@@ -314,7 +320,11 @@ const PaymentInfo = () => {
             <button>Verify</button>
           </form>
         </dialog> */}
-        <OtpDialog visible={dialogVisible} onClose={closeDialog} />
+        <OtpDialog
+          visible={dialogVisible}
+          onClose={closeDialog}
+          setSuccess={setSuccess}
+        />
       </div>
     </>
   );

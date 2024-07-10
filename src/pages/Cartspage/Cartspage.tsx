@@ -53,9 +53,9 @@ const Cartspage = () => {
         <div className="cart-page-content">
           <div className="cart-info">
             <span className="cart-title">
-              <BsCart4 size={"2rem"} /> <h3>Cart</h3>
+              <BsCart4 size={"3rem"} /> <h3>Cart</h3>
             </span>
-            <p>{cart.length} items in your cart</p>
+            <p className="cart-lenght">{cart.length} items in your cart</p>
           </div>
           <div className="table-container">
             <table className="data-table">

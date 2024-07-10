@@ -11,6 +11,16 @@
         display: flex;
         align-items: center;
         gap: 10px;
+        font-size: 56px;
+        @media (max-width: 480px) {
+          font-size: 30px;
+        }
+      }
+
+      .cart-lenght {
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 28px;
       }
     }
     .table-container {

@@ -1,11 +1,13 @@
 import { useState } from "react";
 import "./OptDialogue.scss";
+import { IoIosClose } from "react-icons/io";
 
 interface Dialogue {
   visible: boolean;
   onClose: () => void;
+  setSuccess: React.Dispatch<React.SetStateAction<boolean>>;
 }
-const OtpDialog = ({ visible, onClose }: Dialogue) => {
+const OtpDialog = ({ visible, onClose, setSuccess }: Dialogue) => {
   const [otp, setOtp] = useState(["", "", "", ""]);
 
   const handleChange = (e: any, index: number) => {
@@ -21,11 +23,13 @@ const OtpDialog = ({ visible, onClose }: Dialogue) => {
     e.preventDefault();
     const enteredOtp = otp.join("");
     console.log("Entered OTP:", enteredOtp);
+    setSuccess(true);
     onClose();
   };
 
   return (
     <dialog open={visible}>
+      <IoIosClose size={"2.5rem"} className="close" onClick={() => onClose()} />
       <form onSubmit={handleSubmit} className="otp-form">
         <p>
           To proceed, you need to confirm the payment by entering the OTP
