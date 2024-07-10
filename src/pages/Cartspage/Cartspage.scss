@@ -87,12 +87,13 @@
           }
         }
 
-        .Cart-remove-btn{
-        padding: 1rem;
+        .Cart-remove-btn {
+          padding: 1rem;
           background: red;
           color: #f8f7f7;
           border: none;
           border-radius: 5px;
+          cursor: pointer;
         }
       }
 
