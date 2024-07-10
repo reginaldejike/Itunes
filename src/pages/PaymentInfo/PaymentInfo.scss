@@ -57,6 +57,10 @@
               @media (max-width:1024px){
               font-size: 1rem;
               }
+              @media (max-width:480px){
+              font-size: 12px;
+              padding: 1rem;
+              }
             }
           }
           .expiry-cvv {
@@ -71,6 +75,7 @@
             }
             @media (max-width: 1026px) {
               flex-direction: column;
+              gap: unset;
             }
           }
           .check-box-section {
