@@ -37,9 +37,12 @@
       border-radius: 47px;
       width: 600px;
       margin-bottom: 30px;
+      font-size: 40px;
       color: #f8f7f7;
       @media (max-width: 601px) {
         width: 100%;
+        font-size: 15px;
+        height: 70px;
       }
     }
     &-body {
