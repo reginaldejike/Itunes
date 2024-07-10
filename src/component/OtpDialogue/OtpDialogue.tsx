@@ -1,13 +1,15 @@
 import { useState } from "react";
 import "./OptDialogue.scss";
 import { IoIosClose } from "react-icons/io";
+import { Product } from "../../type/type";
 
 interface Dialogue {
   visible: boolean;
   onClose: () => void;
   setSuccess: React.Dispatch<React.SetStateAction<boolean>>;
+  setCart: React.Dispatch<React.SetStateAction<Product[]>>;
 }
-const OtpDialog = ({ visible, onClose, setSuccess }: Dialogue) => {
+const OtpDialog = ({ visible, onClose, setSuccess, setCart }: Dialogue) => {
   const [otp, setOtp] = useState(["", "", "", ""]);
 
   const handleChange = (e: any, index: number) => {
@@ -24,6 +26,7 @@ const OtpDialog = ({ visible, onClose, setSuccess }: Dialogue) => {
     const enteredOtp = otp.join("");
     console.log("Entered OTP:", enteredOtp);
     setSuccess(true);
+    setCart([]);
     onClose();
   };
 

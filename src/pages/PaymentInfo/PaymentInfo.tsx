@@ -2,7 +2,6 @@ import AtmCard from "../../assets/images/atm.svg";
 import {
   Controller,
   FieldError,
-  set,
   SubmitHandler,
   useForm,
 } from "react-hook-form";
@@ -27,6 +26,7 @@ interface Card {
 interface Props {
   total: () => number;
   cart: Product[];
+  setCart: React.Dispatch<React.SetStateAction<Product[]>>;
 }
 
 const PaymentInfo = () => {
@@ -42,7 +42,7 @@ const PaymentInfo = () => {
     formState: { errors, isSubmitting },
   } = useForm<Card>();
 
-  const { total, cart } = useOutletContext<Props>();
+  const { total, cart, setCart } = useOutletContext<Props>();
 
   const onSubmit: SubmitHandler<Card> = async (data) => {
     try {
@@ -324,6 +324,7 @@ const PaymentInfo = () => {
           visible={dialogVisible}
           onClose={closeDialog}
           setSuccess={setSuccess}
+          setCart={setCart}
         />
       </div>
     </>
