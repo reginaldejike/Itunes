@@ -12,12 +12,16 @@
   }
   .card-wrapper {
     max-width: 1480px;
-    display: flex;
-    justify-content: center;
+    display: grid;
     margin: auto;
-    flex-wrap: wrap;
+    grid-template-columns: repeat(4, minmax(200px, 1fr));
     gap: 2rem;
     padding: 2rem;
+    @media (max-width:1026px){
+    display: flex;
+    flex-wrap: wrap;
+     justify-content: center;
+    }
   }
   .buttom-div {
     background: #d0d1f0;
