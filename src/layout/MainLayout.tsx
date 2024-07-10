@@ -51,14 +51,12 @@ const MainLayout = () => {
         return [...prevCart, { ...product, quantity: 1 }];
       }
     });
-    console.log({ cart });
   };
 
   const removeFromCart = (productId: number) => {
     setCart((prevCart) => {
       return prevCart.filter((item) => item.id !== productId);
     });
-    console.log({ cart });
   };
 
   const convertPriceToInteger = (price: string): number => {
