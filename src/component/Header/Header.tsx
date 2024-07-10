@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import logo from "../../assets/images/itunelogo4.svg";
 import { BsCart4 } from "react-icons/bs";
 import { NavHashLink } from "react-router-hash-link";
@@ -13,6 +13,7 @@ interface Props {
 }
 const Header = ({ cart }: Props) => {
   const [ismobile, setIsmobile] = useState<boolean>(false);
+  const location= useLocation()
 
   return (
     <>
@@ -22,9 +23,10 @@ const Header = ({ cart }: Props) => {
             <img src={logo} alt="logo" className="logo" />
           </NavLink>
           <div className={!ismobile ? "navigation-links" : "mobile-view"}>
-            <NavHashLink to={"#hotDeal"} className="nav-item">
+            {location.pathname==='/'? ( <NavHashLink to={"#hotDeal"} className="nav-item">
               <p>All Products</p>
-            </NavHashLink>
+            </NavHashLink>): ''}
+           
             <NavLink to={"/cart"} className="nav-item">
               <div className="cart">
                 <BsCart4 size={"2rem"} />

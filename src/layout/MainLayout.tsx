@@ -9,6 +9,7 @@ const MainLayout = () => {
   const [likedProduct, setLikedProduct] = useState<number[]>([]);
   const [search, setSearch] = useState<string>("");
   const [cart, setCart] = useState<Product[]>([]);
+  const [loading, setloading] = useState<boolean>(true)
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -20,6 +21,8 @@ const MainLayout = () => {
         setProduct(data);
       } catch (error) {
         console.log(error);
+      } finally{
+        setloading(false)
       }
     };
 
@@ -92,6 +95,7 @@ const MainLayout = () => {
           calculateTotalPrice,
           discount,
           total,
+          loading
         }}
       />
       <Footer />

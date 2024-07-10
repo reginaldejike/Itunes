@@ -1,8 +1,8 @@
 import "./HotDeals.scss";
-
 import { useOutletContext } from "react-router-dom";
 import { Product, Products } from "../../type/type";
 import ProductCard from "../ProductCard/ProductCard";
+import Spinner from "../Spinner/Spinner";
 
 interface Props {
   product: Products;
@@ -10,10 +10,11 @@ interface Props {
   likedProduct: number[];
   search: string;
   addToCart: (product: Product) => void;
+  loading:boolean
 }
 
 const HotDeals = () => {
-  const { product, toggle, likedProduct, search, addToCart } =
+  const { product, toggle, likedProduct, search, addToCart,loading } =
     useOutletContext<Props>();
 
   const filteredProducts = product.filter((prod) =>
@@ -27,7 +28,7 @@ const HotDeals = () => {
       <div className="hot-deal" id="hotDeal">
         <h1>Hot Deals</h1>
         <div className="card-wrapper">
-          {filteredProducts.map((p) => (
+          {loading ? <Spinner/> : filteredProducts.map((p) => (
             <ProductCard
               key={p.id}
               product={p}
@@ -36,6 +37,7 @@ const HotDeals = () => {
               liked={likedProduct.includes(p.id)}
             />
           ))}
+          
         </div>
         <div className="buttom-div"></div>
       </div>
