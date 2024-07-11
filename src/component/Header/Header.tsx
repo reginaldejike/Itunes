@@ -13,7 +13,7 @@ interface Props {
 }
 const Header = ({ cart }: Props) => {
   const [ismobile, setIsmobile] = useState<boolean>(false);
-  const location= useLocation()
+  const location = useLocation();
 
   return (
     <>
@@ -23,10 +23,14 @@ const Header = ({ cart }: Props) => {
             <img src={logo} alt="logo" className="logo" />
           </NavLink>
           <div className={!ismobile ? "navigation-links" : "mobile-view"}>
-            {location.pathname==='/'? ( <NavHashLink to={"#hotDeal"} className="nav-item">
-              <p>All Products</p>
-            </NavHashLink>): ''}
-           
+            {location.pathname === "/" ? (
+              <NavHashLink to={"#hotDeal"} className="nav-item">
+                <p>All Products</p>
+              </NavHashLink>
+            ) : (
+              ""
+            )}
+
             <NavLink to={"/cart"} className="nav-item">
               <div className="cart">
                 <BsCart4 size={"2rem"} />
