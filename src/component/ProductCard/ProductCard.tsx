@@ -1,6 +1,6 @@
 import "./Product.scss";
-import { CiHeart } from "react-icons/ci";
 import { Product } from "../../type/type";
+import { FaHeart } from "react-icons/fa";
 
 interface ProductCardProps {
   product: Product;
@@ -18,7 +18,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
   return (
     <div key={product.id} className="card">
       {toggleLike && product && (
-        <CiHeart
+        <FaHeart
           size="2rem"
           onClick={() => toggleLike(product.id)}
           className={liked ? "dislike-heart" : "heart"}
