@@ -2,7 +2,7 @@ import { ClipLoader } from "react-spinners";
 
 const override={
     display: 'block',
-    margin: '100px auto'
+    margin: 'auto'
 }
 
 const Spinner = ({loading}:any) => {

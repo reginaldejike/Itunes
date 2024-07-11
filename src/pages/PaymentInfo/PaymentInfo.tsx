@@ -34,10 +34,13 @@ const PaymentInfo = () => {
   const [selectDelivery, setSelectDelivery] = useState<string>("pickup");
   const [dialogVisible, setDialogVisible] = useState(false);
   const [success, setSuccess] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true)
+
   const {
     register,
     handleSubmit,
     setError,
+    reset,
     control,
     formState: { errors, isSubmitting },
   } = useForm<Card>();
@@ -54,6 +57,9 @@ const PaymentInfo = () => {
       setError("root", {
         message: "This email has already been taken",
       });
+    }finally{
+      reset()
+      setLoading(true)
     }
   };
 
@@ -80,10 +86,10 @@ const PaymentInfo = () => {
     <>
       <div className="payment-info">
         <div className="payment-info-content">
-          <h3>Payment Info</h3>
+          <h3>Payment Infomation</h3>
           {}
-          {dialogVisible ? <div className="loading">Please wait</div> : ""}
-          {success ? <div className="success">Payment successful</div> : ""}
+          {loading && dialogVisible && <div className="loading">Please wait</div> }
+          {success && <div className="success">Payment successful</div> }
 
           <div className="payment-info-content-body">
             <form onSubmit={handleSubmit(onSubmit)} className="form-container">
@@ -294,8 +300,8 @@ const PaymentInfo = () => {
                   )}
                 </div>
               </div>
-              <button disabled={isSubmitting} className="check-out-btn">
-                {isSubmitting ? "Loading.." : `NGN ${""}${total()}`}
+              <button disabled={isSubmitting} className="check-out-btn" >
+                {isSubmitting ? "Loading.." : `NGN ${""}${total()}`} 
               </button>
             </form>
             <div className="cart-section">
