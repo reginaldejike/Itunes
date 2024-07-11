@@ -10,11 +10,11 @@ interface Props {
   likedProduct: number[];
   search: string;
   addToCart: (product: Product) => void;
-  loading:boolean
+  loading: boolean;
 }
 
 const HotDeals = () => {
-  const { product, toggle, likedProduct, search, addToCart,loading } =
+  const { product, toggle, likedProduct, search, addToCart, loading } =
     useOutletContext<Props>();
 
   const filteredProducts = product.filter((prod) =>
@@ -27,17 +27,20 @@ const HotDeals = () => {
     <>
       <div className="hot-deal" id="hotDeal">
         <h1>Hot Deals</h1>
-        <div className="card-wrapper">
-          {loading ? <Spinner/> : filteredProducts.map((p) => (
-            <ProductCard
-              key={p.id}
-              product={p}
-              toggleLike={toggle}
-              addToCart={addToCart}
-              liked={likedProduct.includes(p.id)}
-            />
-          ))}
-          
+        <div className="card-wrapper" id="card">
+          {loading ? (
+            <Spinner />
+          ) : (
+            filteredProducts.map((p) => (
+              <ProductCard
+                key={p.id}
+                product={p}
+                toggleLike={toggle}
+                addToCart={addToCart}
+                liked={likedProduct.includes(p.id)}
+              />
+            ))
+          )}
         </div>
         <div className="buttom-div"></div>
       </div>

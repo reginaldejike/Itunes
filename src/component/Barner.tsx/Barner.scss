@@ -76,6 +76,9 @@
         }
       }
       .search-button {
+        text-decoration: none;
+        display: grid;
+        place-items: center;
         background: #2e3192;
         font-size: 28px;
         font-weight: 400;

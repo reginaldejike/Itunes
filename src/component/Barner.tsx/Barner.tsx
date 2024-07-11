@@ -1,6 +1,7 @@
 import { CiSearch } from "react-icons/ci";
 import "./Barner.scss";
 import BarnerPic from "../../assets/images/Barnerpics.png";
+import { NavHashLink } from "react-router-hash-link";
 import React from "react";
 import { useOutletContext } from "react-router-dom";
 
@@ -14,6 +15,7 @@ const Barner = () => {
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
   };
+
   return (
     <>
       <div className="barner">
@@ -34,12 +36,13 @@ const Barner = () => {
                 onChange={onChange}
               />
             </div>
-            <button
+            <NavHashLink
               className="search-button"
-              onClick={(e) => e.preventDefault()}
+              // onClick={(e) => e.preventDefault()}
+              to={"#card"}
             >
               Search
-            </button>
+            </NavHashLink>
           </form>
         </div>
         <div>
