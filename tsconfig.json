@@ -9,7 +9,6 @@
     },
     {
       "compilerOptions": {
-        "types": ["node"],
         "lib": ["es2018"]
       }
     }
