@@ -1,23 +1,22 @@
 import { BsCart4 } from "react-icons/bs";
 import "./Cartspage.scss";
-import { Product } from "../../type/type";
 import { useNavigate, useOutletContext } from "react-router-dom";
+import { Items } from "../../type/Item";
 
 interface Props {
-  cart: Product[];
-  setCart: React.Dispatch<React.SetStateAction<Product[]>>;
+  cart: Items[];
+  setCart: React.Dispatch<React.SetStateAction<Items[]>>;
   convertPriceToInteger: (price: string) => number;
   calculateTotalPrice: () => number;
   discount: () => number;
   total: () => number;
-  removeFromCart: (productId: number) => void;
+  removeFromCart: (productId: string) => void;
 }
 
 const Cartspage = () => {
   const {
     cart,
     setCart,
-    convertPriceToInteger,
     calculateTotalPrice,
     discount,
     total,
@@ -25,27 +24,34 @@ const Cartspage = () => {
   } = useOutletContext<Props>();
 
   const navigate = useNavigate();
-  const handleIncrease = (id: number) => {
+  const handleIncrease = (id: string) => {
     setCart((prevCart) =>
       prevCart.map((item) =>
-        item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+        item.id === id
+          ? { ...item, available_quantity: item.available_quantity + 1 }
+          : item
       )
     );
   };
 
-  const handleDecrease = (id: number) => {
+  const handleDecrease = (id: string) => {
     setCart((prevCart) =>
       prevCart.map((item) =>
         item.id === id
-          ? { ...item, quantity: Math.max(item.quantity - 1, 1) }
+          ? {
+              ...item,
+              available_quantity: Math.max(item.available_quantity - 1, 1),
+            }
           : item
       )
     );
   };
 
   const checkOut = () => {
-    navigate("/paymentInfo");
+    navigate("/checkout");
   };
+
+  const baseUrl = "https://api.timbu.cloud/images/";
 
   return (
     <>
@@ -90,11 +96,15 @@ const Cartspage = () => {
                   <tr key={product.id} className="data-row">
                     <div className="data-row-card">
                       <div className="img-card">
-                        <img src={product.image} alt={product.brandName} />
+                        <img
+                          src={`${baseUrl}${product.photos[0].url}`}
+                          alt={product.name}
+                          className="cart-image"
+                        />
                       </div>
-                      <p>{product.brandName}</p>
+                      <p>{product.name}</p>
                     </div>
-                    <td>{product.price}</td>
+                    <td>{product.current_price[0].NGN}</td>
                     <td>
                       <div className="quantity-btn">
                         <button
@@ -103,7 +113,7 @@ const Cartspage = () => {
                         >
                           -
                         </button>
-                        <p>{product.quantity}</p>
+                        <p>{product.available_quantity}</p>
                         <button
                           onClick={() => handleIncrease(product.id)}
                           className="increase"
@@ -114,7 +124,8 @@ const Cartspage = () => {
                     </td>
                     <td>
                       {`NGN${
-                        convertPriceToInteger(product.price) * product.quantity
+                        product.current_price[0].NGN[0] *
+                        product.available_quantity
                       }`}
                     </td>
                     <td>

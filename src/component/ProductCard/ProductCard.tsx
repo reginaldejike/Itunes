@@ -1,11 +1,12 @@
 import "./Product.scss";
-import { Product } from "../../type/type";
 import { FaHeart } from "react-icons/fa";
+import { Items } from "../../type/Item";
+import { Link } from "react-router-dom";
 
 interface ProductCardProps {
-  product: Product;
-  toggleLike?: (id: number) => void;
-  addToCart?: (product: Product) => void;
+  product: Items;
+  toggleLike?: (id: any) => void;
+  addToCart?: (product: Items) => void;
   liked?: boolean;
 }
 
@@ -15,6 +16,10 @@ const ProductCard: React.FC<ProductCardProps> = ({
   addToCart,
   liked,
 }) => {
+  const baseUrl = "https://api.timbu.cloud/images/";
+  const imageUrl = product.photos?.[0]?.url
+    ? `${baseUrl}${product.photos[0].url}`
+    : "";
   return (
     <div key={product.id} className="card">
       {toggleLike && product && (
@@ -24,10 +29,14 @@ const ProductCard: React.FC<ProductCardProps> = ({
           className={liked ? "dislike-heart" : "heart"}
         />
       )}
-      <img src={product.image} alt={product.brandName} />
-      <p className="brand-name">{product.brandName}</p>
-      <p className="brand-info">{product.brandInfo}</p>
-      <h3 className="brand-price">{product.price}</h3>
+      <img className="product-card-logo" src={imageUrl} alt={product.name} />
+      <p className="brand-name">{product.name}</p>
+      <p className="brand-info">{product.description}</p>
+      <Link to={`/product/${product.id}`} className="more">
+        {" "}
+        more details
+      </Link>
+      <h3 className="brand-price">NGN {product.current_price[0].NGN}</h3>
       {addToCart && product && (
         <button className="add-button" onClick={() => addToCart(product)}>
           Add to cart

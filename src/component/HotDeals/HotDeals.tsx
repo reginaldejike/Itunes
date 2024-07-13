@@ -1,15 +1,15 @@
 import "./HotDeals.scss";
 import { useOutletContext } from "react-router-dom";
-import { Product, Products } from "../../type/type";
 import ProductCard from "../ProductCard/ProductCard";
 import Spinner from "../Spinner/Spinner";
+import { Items } from "../../type/Item";
 
 interface Props {
-  product: Products;
-  toggle: (id: number) => void;
-  likedProduct: number[];
+  product: Items[];
+  toggle: (id: any) => void;
+  likedProduct: string[];
   search: string;
-  addToCart: (product: Product) => void;
+  addToCart: (product: Items) => void;
   loading: boolean;
 }
 
@@ -18,7 +18,7 @@ const HotDeals = () => {
     useOutletContext<Props>();
 
   const filteredProducts = product.filter((prod) =>
-    prod.brandName.toLowerCase().includes(search.toLowerCase())
+    prod.name.toLowerCase().includes(search.toLowerCase())
   );
 
   // if(filteredProducts.length<0)

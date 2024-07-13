@@ -6,21 +6,22 @@
     font-weight: 700;
     font-size: 3rem;
     line-height: 6rem;
-    @media (max-width:480px){
-    text-align: center;
+    @media (max-width: 480px) {
+      text-align: center;
     }
   }
   .card-wrapper {
     max-width: 1480px;
     display: grid;
     margin: auto;
-    grid-template-columns: repeat(4, minmax(200px, 1fr));
+    grid-template-columns: repeat(5, minmax(200px, 1fr));
+    place-content: center;
     gap: 2rem;
     padding: 2rem;
-    @media (max-width:1026px){
-    display: flex;
-    flex-wrap: wrap;
-     justify-content: center;
+    @media (max-width: 1026px) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
     }
   }
   .buttom-div {

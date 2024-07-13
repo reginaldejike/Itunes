@@ -107,6 +107,7 @@
             display: flex;
             justify-content: space-between;
             gap: 20px;
+            width: 100%;
             .form-control {
               width: 50%;
               @media (max-width: 1026px) {

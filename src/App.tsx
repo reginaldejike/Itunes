@@ -8,7 +8,9 @@ import MainLayout from "./layout/MainLayout";
 import Homepage from "./pages/Homepage";
 import "./App.scss";
 import Cartspage from "./pages/Cartspage/Cartspage";
-import PaymentInfo from "./pages/PaymentInfo/PaymentInfo";
+import CheckOut from "./pages/PaymentInfo/CheckOut";
+import ProductPage from "./pages/Product/ProductPage";
+import ProductDetails from "./pages/ProductDetail/ProductDetails";
 
 function App() {
   const router = createBrowserRouter(
@@ -16,7 +18,9 @@ function App() {
       <Route path="/" element={<MainLayout />}>
         <Route index element={<Homepage />} />
         <Route path="/cart" element={<Cartspage />} />
-        <Route path="/paymentInfo" element={<PaymentInfo />} />
+        <Route path="/checkout" element={<CheckOut />} />
+        <Route path="/product" element={<ProductPage />} />
+        <Route path="/product/:id" element={<ProductDetails />} />
       </Route>
     )
   );

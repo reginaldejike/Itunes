@@ -1,0 +1,23 @@
+.product-container {
+  padding: 12rem 0;
+  .available-products {
+    font-size: 2rem;
+    background-color: #5a5dc7;
+    color: #fff;
+    padding: 2rem;
+    text-align: center;
+  }
+  .product-cards-wrapper {
+    padding: 2rem;
+    max-width: 1480px;
+    display: grid;
+    margin: auto;
+    grid-template-columns: repeat(5, minmax(200px, 1fr));
+    gap: 2rem;
+    @media (max-width: 1026px) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+}

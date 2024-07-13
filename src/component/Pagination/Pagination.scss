@@ -1,0 +1,23 @@
+.pagination-wrapper {
+  padding-top: 3rem;
+
+  .pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .prev-btn,
+    .next-btn {
+      padding: 1rem;
+      background: #2e3192;
+      color: #f8f7f7;
+      border: none;
+      outline: solid #f8f7f7;
+      cursor: pointer;
+    }
+
+    .page {
+      font-size: 1rem;
+      padding: 0 1rem;
+    }
+  }
+}

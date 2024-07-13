@@ -48,6 +48,21 @@
           font-size: 0.75rem;
         }
       }
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        height: 2px;
+        width: 0;
+        background-color: #fff;
+        transition: width 0.3s ease;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
     }
 
     .mobile-view-icon {

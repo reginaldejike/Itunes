@@ -4,7 +4,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  // width: 307px;
   min-height: 500px;
   padding: 1rem 2rem;
   border-radius: 16px;
@@ -12,8 +11,12 @@
     width: 300px;
   }
 
-  @media (max-width: 480px){
-  width: 100%;
+  @media (max-width: 480px) {
+    width: 100%;
+  }
+
+  .product-card-logo {
+    height: 200px;
   }
 
   .heart {
@@ -36,6 +39,7 @@
     font-size: 1rem;
     font-weight: 500;
     line-height: 28px;
+    height: 112px;
   }
 
   .brand-name {
@@ -50,6 +54,20 @@
 
   .brand-price {
     margin-top: auto;
+  }
+
+  .more {
+    text-decoration: none;
+    color: #2e3192;
+    display: flex;
+    justify-content: right;
+    font-size: 1rem;
+    text-transform: capitalize;
+    padding-bottom: 5px;
+  }
+
+  .more:hover {
+    color: darken(#2e3192, 20%);
   }
 
   .add-button {

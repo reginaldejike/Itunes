@@ -11,6 +11,7 @@ import { useOutletContext } from "react-router-dom";
 import { Product } from "../../type/type";
 import ProductCard from "../../component/ProductCard/ProductCard";
 import OtpDialog from "../../component/OtpDialogue/OtpDialogue";
+import { Items } from "../../type/Item";
 
 interface Card {
   cardNum: number;
@@ -25,16 +26,16 @@ interface Card {
 
 interface Props {
   total: () => number;
-  cart: Product[];
+  cart: Items[];
   setCart: React.Dispatch<React.SetStateAction<Product[]>>;
 }
 
-const PaymentInfo = () => {
+const CheckOut = () => {
   const [selectedCard, setSelectedCard] = useState<string>("Verve");
   const [selectDelivery, setSelectDelivery] = useState<string>("pickup");
   const [dialogVisible, setDialogVisible] = useState(false);
   const [success, setSuccess] = useState<boolean>(false);
-  const [loading, setLoading] = useState<boolean>(true)
+  const [loading, setLoading] = useState<boolean>(true);
 
   const {
     register,
@@ -57,9 +58,9 @@ const PaymentInfo = () => {
       setError("root", {
         message: "This email has already been taken",
       });
-    }finally{
-      reset()
-      setLoading(true)
+    } finally {
+      reset();
+      setLoading(true);
     }
   };
 
@@ -88,8 +89,10 @@ const PaymentInfo = () => {
         <div className="payment-info-content">
           <h3>Payment Infomation</h3>
           {}
-          {loading && dialogVisible && <div className="loading">Please wait</div> }
-          {success && <div className="success">Payment successful</div> }
+          {loading && dialogVisible && (
+            <div className="loading">Please wait</div>
+          )}
+          {success && <div className="success">Payment successful</div>}
 
           <div className="payment-info-content-body">
             <form onSubmit={handleSubmit(onSubmit)} className="form-container">
@@ -300,8 +303,8 @@ const PaymentInfo = () => {
                   )}
                 </div>
               </div>
-              <button disabled={isSubmitting} className="check-out-btn" >
-                {isSubmitting ? "Loading.." : `NGN ${""}${total()}`} 
+              <button disabled={isSubmitting} className="check-out-btn">
+                {isSubmitting ? "Loading.." : `NGN ${""}${total()}`}
               </button>
             </form>
             <div className="cart-section">
@@ -337,4 +340,4 @@ const PaymentInfo = () => {
   );
 };
 
-export default PaymentInfo;
+export default CheckOut;

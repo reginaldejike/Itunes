@@ -1,10 +1,11 @@
-export interface Product {
-  id: number;
-  brandName: string;
-  brandInfo: string;
-  price: string;
-  image: string;
-  quantity: number;
-}
+import { Items } from "./Item";
 
-export type Products = Product[];
+export interface Product {
+  page: number;
+  size: number;
+  total: number;
+  debug: null;
+  previous_page: string;
+  next_page: string;
+  items: Items[];
+}
