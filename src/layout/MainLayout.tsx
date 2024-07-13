@@ -25,7 +25,7 @@ const MainLayout = () => {
     const fetchProduct = async (page: number) => {
       try {
         const res = await fetch(
-          `https://api.timbu.cloud}/products?organization_id=${organisation_id}&reverse_sort=false&page=${page}&size=10&Appid=${app_id}&Apikey=${api_key}`,
+          `https://api.timbu.cloud/products?organization_id=${organisation_id}&reverse_sort=false&page=${page}&size=10&Appid=${app_id}&Apikey=${api_key}`,
           {
             method: "GET",
             headers: {
