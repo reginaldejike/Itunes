@@ -19,12 +19,13 @@ const MainLayout = () => {
   const api_key = import.meta.env.VITE_API_KEY;
   const app_id = import.meta.env.VITE_APP_ID;
   const organisation_id = import.meta.env.VITE_ORGANISATION_ID;
+  // const base_url = import.meta.env.VITE_API_BASE_URL;
 
   useEffect(() => {
     const fetchProduct = async (page: number) => {
       try {
         const res = await fetch(
-          `/api/products?organization_id=${organisation_id}&reverse_sort=false&page=${page}&size=10&Appid=${app_id}&Apikey=${api_key}`,
+          `https://api.timbu.cloud}/products?organization_id=${organisation_id}&reverse_sort=false&page=${page}&size=10&Appid=${app_id}&Apikey=${api_key}`,
           {
             method: "GET",
             headers: {

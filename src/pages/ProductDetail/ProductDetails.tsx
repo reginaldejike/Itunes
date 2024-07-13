@@ -7,6 +7,7 @@ import Spinner from "../../component/Spinner/Spinner";
 const organisation_id = import.meta.env.VITE_ORGANISATION_ID;
 const api_key = import.meta.env.VITE_API_KEY;
 const app_id = import.meta.env.VITE_APP_ID;
+
 const ProductDetails = () => {
   const { id } = useParams();
   const [product, setProduct] = useState<Items>({} as Items);
