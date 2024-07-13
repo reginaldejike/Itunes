@@ -5,6 +5,9 @@ import Header from "../component/Header/Header";
 import { Outlet } from "react-router-dom";
 import { Product } from "../type/type";
 import { Items } from "../type/Item";
+const api_key = import.meta.env.VITE_API_KEY;
+const app_id = import.meta.env.VITE_APP_ID;
+const organisation_id = import.meta.env.VITE_ORGANISATION_ID;
 
 const MainLayout = () => {
   const [product, setProduct] = useState<Items[]>([]);
@@ -16,9 +19,6 @@ const MainLayout = () => {
   const [loading, setloading] = useState<boolean>(true);
   const [prevPageUrl, setPrevPageUrl] = useState<string | null>(null);
   const [nextPageUrl, setNextPageUrl] = useState<string | null>(null);
-  const api_key = import.meta.env.VITE_API_KEY;
-  const app_id = import.meta.env.VITE_APP_ID;
-  const organisation_id = import.meta.env.VITE_ORGANISATION_ID;
 
   useEffect(() => {
     const fetchProduct = async (page: number) => {
