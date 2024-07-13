@@ -1,3 +1,4 @@
+/// <reference types="vite/client" />
 import { useEffect, useState } from "react";
 import Footer from "../component/Footer/Footer";
 import Header from "../component/Header/Header";
