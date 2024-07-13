@@ -7,10 +7,6 @@
     {
       "path": "./tsconfig.node.json"
     },
-    {
-      "compilerOptions": {
-        "lib": ["es2018"]
-      }
-    }
+    {}
   ]
 }
